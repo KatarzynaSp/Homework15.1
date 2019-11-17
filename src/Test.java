@@ -18,10 +18,11 @@ public class Test {
         System.out.println("Podaj kod kraju, którego informacje chcesz wyświetlić.");
         String inputCode = scanner.nextLine();
         scanner.close();
-        Country country = countriesMap.get(inputCode);
-        if (country != null) {
-            System.out.println(country.toString());
-        } else System.out.println("Źle wpisany kod");
+        if (countriesMap.containsKey(inputCode)) {
+            System.out.println(countriesMap.get(inputCode));
+        } else {
+            System.out.println("Źle wpisany kod");
+        }
     }
 
     private static Map<String, Country> read(BufferedReader bfr) throws IOException {
